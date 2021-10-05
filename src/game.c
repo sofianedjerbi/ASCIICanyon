@@ -8,6 +8,7 @@
  * - height: height of the terminal */
 void init_game(int height){
     int16_t cursor = 0;
+    int16_t size = height;
     int16_t level[height];
     for(int i=0; i<height; i++)
         level[i] = -WALLSIZE/2;
@@ -24,9 +25,15 @@ void update_cursor(int key){
 
 /*  Check if the game is finished */
 bool is_gameover(){
-    for(int i; i<512; i++)
+    for(int i=0; i<size; i++)
         if (level[i] == cursor)
             return true;
     return false;
+}
+
+void update_level(){
+    for(int i=0; i<size; i++)
+        level[i] = level[i+1];
+    level[size] = rand() % 3 - 1;
 }
 
