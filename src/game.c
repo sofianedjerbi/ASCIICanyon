@@ -22,3 +22,11 @@ void update_cursor(int key){
         cursor--;
 }
 
+/*  Check if the game is finished */
+bool is_gameover(){
+    for(int i; i<512; i++)
+        if (level[i] == cursor)
+            return true;
+    return false;
+}
+
