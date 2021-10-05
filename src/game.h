@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <stdbool.h>
 
 #ifndef WALLSIZE    // Set Wallsize to 20 if not set
 #define WALLSIZE 20 // Wallsize is the wall dimension
@@ -20,5 +21,5 @@ int32_t score;       // Player score (each level)
 void init_game(int);     // Initialize game level and player position
 void update_level();     // Generate another line of the level
 void update_cursor(int); // Update cursor according to player move
-void is_gameover();      // Check if the player lost
+bool is_gameover();      // Check if the player lost
 
