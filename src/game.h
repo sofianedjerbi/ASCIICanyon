@@ -13,11 +13,11 @@
 #define RIGHT 279167 // ID of right arrow
 #define QUIT 113     // ID of Q key
 
-int16_t cursor;  // The cursor (player) position
-int16_t level[]; // Current level on screen
-int32_t score;   // Player score (each level)
+int16_t cursor;      // The cursor (player) position
+int16_t level[512];  // Current level on screen
+int32_t score;       // Player score (each level)
 
-void init_game(int)      // Initialize game level and player position
+void init_game(int);     // Initialize game level and player position
 void update_level();     // Generate another line of the level
 void update_cursor(int); // Update cursor according to player move
 void is_gameover();      // Check if the player lost
