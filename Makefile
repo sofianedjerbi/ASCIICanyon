@@ -1,6 +1,6 @@
 CC=clang
 CFLAGS=-O2
-LDFLAGS=-lncurses
+LDFLAGS=-lncurses -ltinfo
 EXEC=out
 
 SRC=$(wildcard src/*.c)
@@ -8,7 +8,7 @@ OBJ=$(SRC:.c=.o)
 
 
 all: $(OBJ)
-	$(CC) -o $(EXEC) $^ $(LDFLAGS)
+	$(CC) $(EXEC) $^ $(LDFLAGS)
 
 
 %.o: %.c
@@ -19,4 +19,4 @@ run: all
 
 clean:
 	rm -f src/*.o
-	rm ./$(EXEC)
+	[ ! -e $(EXEC) ]  || rm ./$(EXEC)
