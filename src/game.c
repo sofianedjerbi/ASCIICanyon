@@ -10,6 +10,7 @@ void init_game(int height){
     int16_t cursor = 0;
     int16_t size = height;
     int16_t level[height];
+    int32_t score = 0;
     for(int i=0; i<height; i++)
         level[i] = -WALLSIZE/2;
 }
@@ -25,7 +26,7 @@ void update_cursor(int key){
 
 /*  Check if the game is finished */
 bool is_gameover(){
-    for(int i=0; i<size; i++)
+    for(int i=3; i<size; i++)
         if (level[i] == cursor)
             return true;
     return false;
