@@ -8,7 +8,7 @@ OBJ=$(SRC:.c=.o)
 
 
 all: $(OBJ)
-	$(CC) $(EXEC) $^ $(LDFLAGS)
+	$(CC) -o $(EXEC) $^ $(LDFLAGS) -v
 
 
 %.o: %.c
