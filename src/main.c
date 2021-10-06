@@ -1,15 +1,22 @@
 #include <stdbool.h>
 #include <ncurses.h>
 
+#include "game.h"
+
 
 int main(int argc, char *argv[]) {
 
     initscr(); // ncurses init
-    noecho(); // Don't print key inputs on screen
-    cbreak(); // No need to press enter after char inputs
+    noecho();  // Don't print key inputs on screen
+    cbreak();  // No need to press enter after char inputs
     nodelay(stdscr, true); // Getch don't block anymore
 
-    int key;
+    int col, row;
+    getmaxyx(stdscr, row, col);
+
+    init_game(row); // Initialize game vars
+
+    int key; // Key inputs
 
     while(1){
         key = getch();
@@ -22,3 +29,4 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
