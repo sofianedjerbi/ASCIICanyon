@@ -5,9 +5,17 @@
 #include "graphics.h"
 
 
+// Init colors pairs
+void init_colors(){
+    start_color();
+    init_pair(1, COLOR_MAGENTA, COLOR_BLACK);
+    init_pair(2, COLOR_YELLOW, COLOR_BLACK);
+    init_pair(3, COLOR_GREEN, COLOR_BLACK);
+}
+
 /* Insert a line of size n (4 -> *  *) into the string s */
 char insert_line(char s[], int n){
-    s[0] = '*'; s[n-1] = '*' ; s[n] = '\0';
+    s[0] = '|'; s[n-1] = '|' ; s[n] = '\0';
     for(int i=1; i < n-1; i++)
         s[i] = ' ';
 }
@@ -29,8 +37,11 @@ void show_line(int pos, int siz, int dec) {
  * height: terminal height
  * level: level int tab */
 void show_level() {
-    for(int i=0; i<height; i++)
+    for(int i=0; i<=height; i++){
+        attron(COLOR_PAIR(size[i]%3 + 1));
         show_line(height-i, size[i], level[i]);
+        attroff(COLOR_PAIR(size[i]%3 + 1));
+    }
 }
 
 /* Show the cursor (player) on screen

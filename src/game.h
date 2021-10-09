@@ -11,7 +11,7 @@
 #endif
 
 #ifndef CURSOR_HEIGHT   // Set Cursor height if not set
-#define CURSOR_HEIGHT 4 // Line of the cursor
+#define CURSOR_HEIGHT 7 // Line of the cursor
 #endif
 
 extern int cursor;      // The cursor (player) position

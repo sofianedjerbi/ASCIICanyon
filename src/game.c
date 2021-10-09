@@ -10,7 +10,7 @@ int width;
 
 int score = 0;
 int cursor = 0;
-int wallsize = WALLSIZE+2;
+int wallsize = WALLSIZE+1;
 int size[512] = {[0 ... 511] = WALLSIZE};
 int level[512] = {[0 ... 511] = -WALLSIZE/2};
 
@@ -34,7 +34,7 @@ void update_cursor(int key){
 /*  Check if the game is finished */
 bool is_gameover(){
     if ((level[CURSOR_HEIGHT] == cursor) ||  // Left border
-        (level[CURSOR_HEIGHT] + size[CURSOR_HEIGHT] == cursor)) // Right border
+        (level[CURSOR_HEIGHT]+size[CURSOR_HEIGHT]-1 == cursor)) // Right
         return true;
     return false;
 }
