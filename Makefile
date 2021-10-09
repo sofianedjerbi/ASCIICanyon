@@ -1,6 +1,6 @@
 CC=clang
 CFLAGS=-O2
-LDFLAGS=-lncurses -ltinfo
+LDFLAGS=-lncurses -ltinfo -lm
 EXEC=out
 
 SRC=$(wildcard src/*.c)
