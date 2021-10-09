@@ -1,27 +1,29 @@
 #pragma once
 
-#include <stdint.h>
 #include <stdbool.h>
 
 #ifndef WALLSIZE    // Set Wallsize to 20 if not set
 #define WALLSIZE 20 // Wallsize is the wall dimension
 #endif
 
-#ifndef TPS // Set TPS if not set
+#ifndef TPS    // Set TPS if not set
 #define TPS 50 // TPS is the amount of tick per seconds
 #endif
 
-#define LEFT 279168  // ID of left arrow
-#define RIGHT 279167 // ID of right arrow
-#define QUIT 113     // ID of Q key
+#ifndef CURSOR_HEIGHT   // Set Cursor height if not set
+#define CURSOR_HEIGHT 4 // Line of the cursor
+#endif
 
-extern int16_t cursor;      // The cursor (player) position
-extern int16_t level[512];  // Current level on screen
-extern int16_t size;        // Height of the window
-extern int32_t score;       // Player score (each level)
+extern int cursor;      // The cursor (player) position
+extern int height;      // Height of the window
+extern int width;       // Width of the window
+extern int score;       // Player score (each level)
+extern int wallsize;    // Dynamic size of the wall
+extern int size[512];   // size[i] is the size of the wallsize level[i]
+extern int level[512];  // Current level on screen
 
-void init_game(int);     // Initialize game level and player position
-void update_level();     // Generate another line of the level
-void update_cursor(int); // Update cursor according to player move
-bool is_gameover();      // Check if the player lost
+void init_game(int, int); // Initialize game level and player position
+void update_level();      // Generate another line of the level
+void update_cursor(int);  // Update cursor according to player move
+bool is_gameover();       // Check if the player lost
 
