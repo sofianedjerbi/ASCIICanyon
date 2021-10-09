@@ -4,13 +4,10 @@
 #include <time.h>
 #include <unistd.h>
 
+#include "main.h"
 #include "game.h"
 #include "graphics.h"
 #include "clock.h"
-
-
-const int MAX_SPEED = 110;
-const int MIN_WALLSIZE = 4;
 
 
 int main(int argc, char *argv[]) {
@@ -20,14 +17,14 @@ int main(int argc, char *argv[]) {
     cbreak();  // No need to press enter after char inputs
     keypad(stdscr, true);  // Enable keypad
     curs_set(0);           // Don't print cursor
-    timeout(0);            // Getch don't block anymore
+    nodelay(stdscr, true);
 
     int height, width, key, speed = 0, tick = 0;
     struct timespec spec;
 
     getmaxyx(stdscr, height, width); // Get screen size
     init_game(height, width);        // Initialize game vars
-    show_level();                    // Show level
+    init_colors();                   // Initialize colors
 
     while(!is_gameover()){
         // INPUTS
@@ -49,13 +46,13 @@ int main(int argc, char *argv[]) {
         mvprintw(2, 0, "Wallsize: %d", wallsize);
         tick++;
         refresh(); // Print changes on screen
-        if(tick == 150-speed) {
+        if(tick == 100-speed) {
             update_level(); // Add a line to the level
             erase();
             tick = 0;
         }
         // INTERFACE
-        sleep_ms(1); // Sleep for 5 ms
+        usleep(5000); // Sleep for 1 ms
     }
 
     endwin();
