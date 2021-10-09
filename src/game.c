@@ -15,14 +15,6 @@ int size[512] = {[0 ... 511] = WALLSIZE};
 int level[512] = {[0 ... 511] = -WALLSIZE/2};
 int trail[CURSOR_HEIGHT] = {0};
 
-/* Init global vars
- * - h: height of the terminal
- * - w: width of the terminal */
-void init_game(int h, int w){
-    height = h;
-    width = w;
-}
-
 /* Update cursor with keyboard inputs
  * - key: key id */
 void update_cursor(int key){

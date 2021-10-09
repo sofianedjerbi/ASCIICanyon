@@ -1,5 +1,6 @@
-#include<stdlib.h>
-#include<ncurses.h>
+#include <stdlib.h>
+#include <ncurses.h>
+#include <string.h>
 
 #include "game.h"
 #include "graphics.h"
@@ -52,5 +53,17 @@ void show_level() {
  * pos: middle-relative position */
 void show_cursor() {
     mvprintw(height-CURSOR_HEIGHT, width/2+cursor, CURSOR);
+}
+
+/* Game Over screen */
+void gameover() {
+    mvprintw(height/2, width/2-7, "- GAME OVER -");
+}
+
+/* Print a dialogue on the screen
+ * txt: Dialogue printed on screen */
+void dialogue(char txt[]) {
+    int w = width/2 - strlen(txt)/2 - 1; // Width position
+    mvprintw(height/2, w, txt);
 }
 

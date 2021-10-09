@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef MAX_SPEED
-#define MAX_SPEED 70   // Max allowed speed
+#define MAX_SPEED 80   // Max allowed speed
 #endif
 
 #ifndef MIN_WALLSIZE

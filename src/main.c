@@ -16,16 +16,13 @@ int main(int argc, char *argv[]) {
     cbreak();  // No need to press enter after char inputs
     keypad(stdscr, true);  // Enable keypad
     curs_set(0);           // Don't print cursor
-    nodelay(stdscr, true);
+    nodelay(stdscr, true); // Don't wait for getch
+    init_colors();         // Initialize colors
 
-    int height, width, key, speed = 0, tick = 0;
-    struct timespec spec;
-
-    getmaxyx(stdscr, height, width); // Get screen size
-    init_game(height, width);        // Initialize game vars
-    init_colors();                   // Initialize colors
+    int key, speed = 0, tick = 0; // Loop vars
 
     while(!is_gameover()){
+        getmaxyx(stdscr, height, width); // Get screen size
         // INPUTS
         key = getch(); // Get key inputs
         if (key > 0)
@@ -41,19 +38,24 @@ int main(int argc, char *argv[]) {
         show_level();  // Print Level on screen
         show_cursor(); // Print cursor on screen
         mvprintw(0, 0, "Score: %d", score);
+        #ifdef DEBUG
         mvprintw(1, 0, "Speed: %d", speed);
         mvprintw(2, 0, "Wallsize: %d", wallsize);
+        #endif
         tick++;
         refresh(); // Print changes on screen
         usleep(5000); // Sleep for 5 ms
         if(tick == 100-speed) {
             update_level(); // Add a line to the level
-            erase();
             tick = 0;
+            erase();
         }
         // INTERFACE
     }
-
+    erase(); // Erase everything for gameover
+    dialogue("- GAME OVER -");
+    nodelay(stdscr, false); // Wait for getch
+    getch();
     endwin();
     return 0;
 }
