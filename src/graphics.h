@@ -1,11 +1,8 @@
 #pragma once
-#include "game.h" // Global var access
 
-// Line str for printing (*          *)
-char[WALLSIZE] line = {[0] = '*',
-                       [1 ... WALLSIZE-2] = ' ',
-                       [WALLSIZE-1] = '*' };
+#define CURSOR "^"
 
-void show_level(int);
-void show_player(int);
+void show_line(int, int, int);
+void show_level();
+void show_cursor();
 
