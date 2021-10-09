@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
             tick = 0;
         }
         // INTERFACE
-        usleep(5000); // Sleep for 1 ms
+        usleep(5000); // Sleep for 5 ms
     }
 
     endwin();
