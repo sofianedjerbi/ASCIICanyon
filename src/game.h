@@ -21,6 +21,7 @@ extern int score;       // Player score (each level)
 extern int wallsize;    // Dynamic size of the wall
 extern int size[512];   // size[i] is the size of the wallsize level[i]
 extern int level[512];  // Current level on screen
+extern int trail[CURSOR_HEIGHT]; // Trail effect on cursor
 
 void init_game(int, int); // Initialize game level and player position
 void update_level();      // Generate another line of the level

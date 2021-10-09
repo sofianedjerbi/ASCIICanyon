@@ -2,8 +2,7 @@
 #include "game.h"
 
 #define CURSOR "^"  // Cursor character
-
-extern int trail[CURSOR_HEIGHT]; // Trail effect on cursor
+#define TRAIL "|"   // Trail character
 
 void init_colors();            // Init colors
 void show_line(int, int, int); // Show a single line of the level

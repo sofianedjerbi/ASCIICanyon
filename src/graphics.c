@@ -20,7 +20,6 @@ char insert_line(char s[], int n){
         s[i] = ' ';
 }
 
-
 /* Show a single line of the level
  * width: the terminal width
  * pos: the height of the line
@@ -41,6 +40,9 @@ void show_level() {
         attron(COLOR_PAIR(size[i]%3 + 1));
         show_line(height-i, size[i], level[i]);
         attroff(COLOR_PAIR(size[i]%3 + 1));
+    }
+    for(int i=0; i<CURSOR_HEIGHT; i++){
+        mvprintw(height-i, width/2+trail[i], TRAIL);
     }
 }
 

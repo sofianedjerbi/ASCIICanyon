@@ -7,7 +7,6 @@
 #include "main.h"
 #include "game.h"
 #include "graphics.h"
-#include "clock.h"
 
 
 int main(int argc, char *argv[]) {
@@ -46,13 +45,13 @@ int main(int argc, char *argv[]) {
         mvprintw(2, 0, "Wallsize: %d", wallsize);
         tick++;
         refresh(); // Print changes on screen
+        usleep(5000); // Sleep for 5 ms
         if(tick == 100-speed) {
             update_level(); // Add a line to the level
             erase();
             tick = 0;
         }
         // INTERFACE
-        usleep(5000); // Sleep for 5 ms
     }
 
     endwin();
