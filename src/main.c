@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     cbreak();  // No need to press enter after char inputs
     keypad(stdscr, true);  // Enable keypad
     curs_set(0);           // Don't print cursor
-    nodelay(stdscr, true); // Don't wait for getch
+    timeout(0); // Don't wait for getch
     init_colors();         // Initialize colors
 
     int key, speed = 0, tick = 0; // Loop vars
@@ -44,17 +44,17 @@ int main(int argc, char *argv[]) {
         #endif
         tick++;
         refresh(); // Print changes on screen
-        usleep(5000); // Sleep for 5 ms
+        usleep(1000); // Sleep for 1 ms
         if(tick == 100-speed) {
             update_level(); // Add a line to the level
             tick = 0;
-            erase();
         }
+        erase();
         // INTERFACE
     }
     erase(); // Erase everything for gameover
     dialogue("- GAME OVER -");
-    nodelay(stdscr, false); // Wait for getch
+    timeout(-1); // Wait for getch
     getch();
     endwin();
     return 0;
