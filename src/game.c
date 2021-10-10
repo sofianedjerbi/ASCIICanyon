@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <ncurses.h>
+#include <math.h> // Floor/ceil
 
 #include "game.h"
 
@@ -43,6 +44,10 @@ void update_level(){
     trail[CURSOR_HEIGHT-1] = cursor; // New trail
     size[height] = wallsize;         // Change wall size
     level[height] += rand() % 3 - 1; // Change wall position
+    if (level[height] > floor(width/2)-wallsize)
+        level[height] -= 1;          // Don't cross the terminal (right)
+    else if (level[height] < ceil(-width/2))
+        level[height] += 1;          // Don't cross the terminal (left)
     score++;
 }
 
