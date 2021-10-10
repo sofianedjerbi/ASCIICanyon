@@ -1,5 +1,5 @@
 CC=clang
-CFLAGS=-O2
+CFLAGS=-O2 -D DEBUG
 LDFLAGS=-lncurses -ltinfo -lm
 EXEC=out
 
@@ -8,8 +8,7 @@ OBJ=$(SRC:.c=.o)
 
 
 all: $(OBJ)
-	$(CC) -o $(EXEC) $^ $(LDFLAGS) -v
-
+	$(CC) -o $(EXEC) $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
