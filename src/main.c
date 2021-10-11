@@ -48,11 +48,11 @@ int main(int argc, char *argv[]) {
         if(tick == 100-speed) {
             update_level(); // Add a line to the level
             tick = 0;
+            erase();
         }
-        erase();
         // INTERFACE
     }
-    erase(); // Erase everything for gameover
+    //erase(); // Erase everything for gameover
     dialogue("- GAME OVER -");
     timeout(-1); // Wait for getch
     getch();
