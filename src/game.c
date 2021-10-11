@@ -14,7 +14,8 @@ int cursor = 0;
 int wallsize = WALLSIZE+1;
 int size[512] = {[0 ... 511] = WALLSIZE};
 int level[512] = {[0 ... 511] = -WALLSIZE/2};
-int trail[CURSOR_HEIGHT] = {0};
+int trail[512] = {0};
+int cursor_height = CURSOR_HEIGHT;
 
 /* Update cursor with keyboard inputs
  * - key: key id */
@@ -23,12 +24,18 @@ void update_cursor(int key){
         cursor++;
     else if (key == KEY_LEFT)
         cursor--;
+    else if (key == KEY_DOWN)
+        cursor_height--;
+    else if (key == KEY_UP){
+        cursor_height++;
+        trail[cursor_height-1] = cursor;
+    }
 }
 
 /*  Check if the game is finished */
 bool is_gameover(){
-    if ((level[CURSOR_HEIGHT] >= cursor) ||  // Left border
-        (level[CURSOR_HEIGHT]+size[CURSOR_HEIGHT]-1 <= cursor)) // Right
+    if ((level[cursor_height] >= cursor) ||  // Left border
+        (level[cursor_height]+size[cursor_height]-1 <= cursor)) // Right
         return true;
     return false;
 }
@@ -39,9 +46,9 @@ void update_level(){
         size[i] = size[i+1];
         level[i] = level[i+1];
     }
-    for(int i=0; i<CURSOR_HEIGHT-1; i++) // Update trail effect
+    for(int i=0; i<cursor_height-1; i++) // Update trail effect
         trail[i] = trail[i+1];
-    trail[CURSOR_HEIGHT-1] = cursor; // New trail
+    trail[cursor_height-1] = cursor; // New trail
     size[height] = wallsize;         // Change wall size
     level[height] += rand() % 3 - 1; // Change wall position
     if (level[height] > floor(width/2)-wallsize)

@@ -42,7 +42,7 @@ void show_level() {
         show_line(height-i, size[i], level[i]);
         attroff(COLOR_PAIR(size[i]%3 + 1));
     }
-    for(int i=0; i<CURSOR_HEIGHT; i++){
+    for(int i=0; i<cursor_height; i++){
         mvprintw(height-i, width/2+trail[i], TRAIL);
     }
 }
@@ -52,12 +52,7 @@ void show_level() {
  * height: terminal height
  * pos: middle-relative position */
 void show_cursor() {
-    mvprintw(height-CURSOR_HEIGHT, width/2+cursor, CURSOR);
-}
-
-/* Game Over screen */
-void gameover() {
-    mvprintw(height/2, width/2-7, "- GAME OVER -");
+    mvprintw(height-cursor_height, width/2+cursor, CURSOR);
 }
 
 /* Print a dialogue on the screen
