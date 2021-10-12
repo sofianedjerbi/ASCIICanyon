@@ -1,7 +1,7 @@
 #pragma once
 #include "game.h"
 
-#define CURSOR "^"  // Cursor character
+#define CURSOR "^"  // cURSOR CHaracter
 #define TRAIL "|"   // Trail character
 
 void init_colors();            // Init colors

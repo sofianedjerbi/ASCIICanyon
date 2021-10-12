@@ -20,14 +20,14 @@ int cursor_height = CURSOR_HEIGHT;
 /* Update cursor with keyboard inputs
  * - key: key id */
 void update_cursor(int key){
-    if (key == KEY_RIGHT)
+    if (key == KEY_RIGHT)     // RIGHT
         cursor++;
-    else if (key == KEY_LEFT)
+    else if (key == KEY_LEFT) // LEFT
         cursor--;
-    else if (key == KEY_DOWN)
-        cursor_height--;
-    else if (key == KEY_UP){
-        cursor_height++;
+    else if (key == KEY_DOWN) // DOWN
+        cursor_height -= cursor_height-1 <= 0 ? 0 : 1;      // don't go too far down
+    else if (key == KEY_UP){  // UP
+        cursor_height += cursor_height+1 >= height ? 0 : 1; // don't go too far up
         trail[cursor_height-1] = cursor;
     }
 }
