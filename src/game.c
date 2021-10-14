@@ -9,9 +9,9 @@
 int height;
 int width;
 
-int score = 0;
+int score = 1;
 int cursor = 0;
-int wallsize = WALLSIZE+1;
+int wallsize = WALLSIZE;
 int size[512] = {[0 ... 511] = WALLSIZE};
 int level[512] = {[0 ... 511] = -WALLSIZE/2};
 int trail[512] = {0};

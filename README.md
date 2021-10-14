@@ -2,6 +2,7 @@
 School project: An ASCII game
 Sofiane DJERBI & Aksel PERRIGAULT
 ## Compiler flags
+Don't forget to `make clean` when changing flags.
 ### Program flags
 -`-DDEBUG` show speed/wallsize
 -`-DWALLREDUCTION` activate dynamic wall reduction
