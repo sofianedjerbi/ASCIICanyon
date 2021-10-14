@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
         #endif
         refresh(); // Print changes on screen
         usleep(1000); // Sleep for 1 ms
-         #ifdef HZ
+        #ifdef HZ
         if(tick == 1000/HZ){ // A tick = 1 ms, HZ = per sec.
         #else
         if(tick == 100-speed) {
