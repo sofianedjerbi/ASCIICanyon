@@ -16,7 +16,7 @@ void init_colors(){
 
 /* Insert a line of size n (4 -> *  *) into the string s */
 void insert_line(char s[], int n){
-    s[0] = '|'; s[n-1] = '|' ; s[n] = '\0';
+    s[0] = WALL; s[n-1] = WALL; s[n] = '\0';
     for(int i=1; i < n-1; i++)
         s[i] = ' ';
 }

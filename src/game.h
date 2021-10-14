@@ -6,10 +6,6 @@
 #define WALLSIZE 20 // Wallsize is the wall dimension
 #endif
 
-#ifndef TPS    // Set TPS if not set
-#define TPS 50 // TPS is the amount of tick per seconds
-#endif
-
 #ifndef CURSOR_HEIGHT   // Set Cursor height if not set
 #define CURSOR_HEIGHT 8 // Line of the cursor
 #endif

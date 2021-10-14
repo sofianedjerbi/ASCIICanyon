@@ -5,5 +5,5 @@
 #endif
 
 #ifndef MIN_WALLSIZE
-#define MIN_WALLSIZE 8 // Minimum wall size
+#define MIN_WALLSIZE 10 // Minimum wall size
 #endif
