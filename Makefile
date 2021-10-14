@@ -1,5 +1,6 @@
 CC=clang
-CFLAGS=-O2 -D DEBUG
+CFLAGS=-O2
+DEFLAGS=-DWALLREDUCTION -DSTORY
 LDFLAGS=-lncurses -ltinfo -lm
 EXEC=out
 
@@ -11,7 +12,7 @@ all: $(OBJ)
 	$(CC) -o $(EXEC) $^ $(LDFLAGS)
 
 %.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) -o $@ -c $< $(CFLAGS) $(DEFLAGS)
 
 run: all
 	./$(EXEC)
