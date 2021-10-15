@@ -26,8 +26,13 @@ int main(int argc, char *argv[]) {
         getmaxyx(stdscr, height, width); // Get screen size
         // INPUTS
         key = getch(); // Get key inputs
-        if (key > 0)
+        if (key > 0){
             update_cursor(key);
+            if (key == 'q'){
+                endwin();
+                return 0;
+            }
+        }
         // INPUTS
         // GAME MECANICS
         #ifndef HZ
