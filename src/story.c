@@ -28,7 +28,7 @@ char dialogues[MAX_STORY][100] = {
     "Is end it all and leave forever.",
     "What's done is done it feels so bad.",
     "What once was happy now is sad.",
-    "I've love again.",
+    "I'll never love again.",
     "My world is ending..",
     "I WISH THAT I COULD TURN BACK TIME",
     "COS NOW THE GUILT IS ALL MINE",
