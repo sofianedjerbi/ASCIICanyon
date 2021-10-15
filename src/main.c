@@ -29,8 +29,7 @@ int main(int argc, char *argv[]) {
         if (key > 0){
             update_cursor(key);
             if (key == 'q'){
-                endwin();
-                return 0;
+                break;
             }
         }
         // INPUTS
@@ -77,14 +76,18 @@ int main(int argc, char *argv[]) {
         // INTERFACE
     }
     erase(); // Erase everything for gameover
+    timeout(-1); // Wait for getch
+    char score_txt[100]; // For printing score
     #ifdef STORY
     dialogue("- DEATH -");
     #else
-    dialogue("- GAME OVER -");
+    dialogue("- END -\n");
     #endif
-    timeout(-1); // Wait for getch
     getch();
-    endwin();
+    sprintf(score_txt, "- SCORE: %d -", score);
+    dialogue(score_txt);
+    getch();
+    endwin(); // Quit ncurses
     return 0;
 }
 
