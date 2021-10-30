@@ -6,7 +6,7 @@ School project: An ASCII game
 </p>  
 
 ## Build
-Build and run: `make run`
+Build and run: `make run`  
 You can edit `Makefile`'s `DEFLAGS` in order to change program flags.
 ## Compiler flags
 Don't forget to `make clean` when changing flags.
