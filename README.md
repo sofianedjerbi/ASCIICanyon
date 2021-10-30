@@ -1,9 +1,10 @@
 # ASCII-Canyon
-School project: An ASCII game
-Sofiane DJERBI & Aksel PERRIGAULT
 <p align="center">
+  School project: An ASCII game <br>
+  Sofiane DJERBI & Aksel PERRIGAULT
   <img src="./demo.gif">
-</p>
+</p>  
+
 ## Build
 Build and run: `make run`
 You can edit `Makefile`'s `DEFLAGS` in order to change program flags.
