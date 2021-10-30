@@ -1,6 +1,5 @@
 # ASCII-Canyon
 School project: An ASCII game  
-Sofiane DJERBI & Aksel PERRIGAULT
 
 <p align="center">
   <img src="./demo.gif">
